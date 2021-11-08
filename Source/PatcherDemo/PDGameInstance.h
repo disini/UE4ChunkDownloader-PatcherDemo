@@ -10,7 +10,7 @@
 
 // patching delegates
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPatchCompleteDelegate, bool, Succeeded);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChunkMountedDelegate, int32, ChunkId, bool, Succeeded);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FChunkMountedDelegate, int32, ChunkID, bool, Succeeded);
 
 // reports game patching stats that can be used for progress feedback
 USTRUCT(BlueprintType)
@@ -41,7 +41,7 @@ struct FPPatchStats
  *  Extends GameInstance functionality to provide runtime chunk download and patching
  */
 UCLASS()
-class UPDGameInstance : public UGameInstance
+class PATCHERDEMO_API UPDGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 
@@ -71,7 +71,7 @@ public:
 
 
 	/** Fired when the patching process succeeds or fails */
-	UPROPERTY(BlueprintAssignable, Category = "Patching")
+	UPROPERTY(BlueprintAssignable, Category = "Patching");
 		FPatchCompleteDelegate OnPatchComplete;
 
 
@@ -106,7 +106,7 @@ public:
 		bool IsChunkLoaded(int32 ChunkID);
 
 	/** Fired when the patching process succeeds or fails */
-	URPOPERTY(BlueprintAssignable, Category = "Patching")
+	UPROPERTY(BlueprintAssignable, Category = "Patching");
 		FPatchCompleteDelegate OnSingleChunkPatchComplete;
 
 	/** List of single chunks to download separate of the main patching process */
@@ -123,7 +123,7 @@ public:
 	}
 
 	/** Adds a single chunk to the download list and starts the load and mount process */
-	UFUNCTION(BlueprintPure, Category = "Patching")
+	UFUNCTION(BlueprintCallable, Category = "Patching")
 		bool DownloadSingleChunk(int32 ChunkID);
 
 	/** Called when single chunk download process finishes */

@@ -31,12 +31,16 @@ void UPDGameInstance::OnPatchVersionResponse(FHttpRequestPtr Request, FHttpRespo
 
 bool UPDGameInstance::PatchGame()
 {
-
+	return true;
 }
 
 FPPatchStats UPDGameInstance::GetPatchStatus()
 {
 
+
+	FPPatchStats RetStats;
+
+	return RetStats;
 }
 
 void UPDGameInstance::OnDownloadComplete(bool bSuccess)
@@ -46,12 +50,12 @@ void UPDGameInstance::OnDownloadComplete(bool bSuccess)
 
 bool UPDGameInstance::IsChunkLoaded(int32 ChunkID)
 {
-
+	return true;
 }
 
 bool UPDGameInstance::DownloadSingleChunk(int32 ChunkID)
 {
-
+	return true;
 }
 
 void UPDGameInstance::OnSingleChunkDownloadComplete(bool bSuccess)
